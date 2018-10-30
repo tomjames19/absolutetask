@@ -1,0 +1,24 @@
+{
+  "name": "notes-app-client",
+  "version": "0.1.0",
+  "private": true,
+  "devDependencies": {
+    "react-scripts": "1.0.12"
+  },
+  "dependencies": {
+    "amazon-cognito-identity-js": "^1.31.0",
+    "aws-amplify": "^1.1.6",
+    "aws-sdk": "^2.336.0",
+    "crypto-js": "^3.1.9-1",
+    "react": "^15.6.2",
+    "react-bootstrap": "^0.31.5",
+    "react-dom": "^15.6.2",
+    "react-router-dom": "^4.3.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}
