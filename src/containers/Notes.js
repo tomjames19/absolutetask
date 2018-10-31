@@ -147,11 +147,12 @@ render() {
                 >
                   {this.formatFilename(this.state.note.attachment)}
                 </a>
+
               </FormControl.Static>
             </FormGroup>}
           <FormGroup controlId="file">
             {!this.state.note.attachment &&
-              <ControlLabel>Attachment</ControlLabel>}
+              <ControlLabel>Add Attachment here</ControlLabel>}
             <FormControl onChange={this.handleFileChange} type="file" />
           </FormGroup>
           <LoaderButton
