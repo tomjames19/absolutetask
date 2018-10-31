@@ -4,6 +4,7 @@ import LoaderButton from "../components/LoaderButton";
 import { AuthenticationDetails, CognitoUserPool } from "amazon-cognito-identity-js";
 import config from "../config";
 import "./Signup.css";
+import FacebookButton from "../components/FaceBookButton";
 
 export default class Signup extends Component {
     constructor(props) {
@@ -118,6 +119,10 @@ export default class Signup extends Component {
           onFailure: err => reject(err)
         })
       );
+    }
+
+    handleFbLogin = () => {
+      this.props.userHasAuthenticated(true);
     }
 
     renderConfirmationForm() {

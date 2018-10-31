@@ -5,6 +5,7 @@ import { Nav, NavItem, Navbar } from "react-bootstrap";
 import Routes from "./Routes";
 import { authUser, signOutUser } from "./libs/awsLibs";
 import "./App.css";
+import config from "./config";
 
 class App extends Component {
   constructor(props) {
@@ -29,6 +30,8 @@ class App extends Component {
   }
 
   async componentDidMount() {
+    this.loadFacebookSDK()
+
     try {
       if (await authUser()) {
         this.userHasAuthenticated(true);
@@ -40,6 +43,31 @@ class App extends Component {
 
     this.setState({ isAuthenticating: false });
   }
+
+  loadFacebookSDK() {
+    console.log('step 0')
+    window.fbAsyncInit = function() {
+      console.log('step 1')
+      console.log('##################')
+    window.FB.init({
+      appId            : config.social.FB,
+      autoLogAppEvents : true,
+      xfbml            : true,
+      version          : 'v3.1'
+    });
+    console.log('step 2')
+  };
+
+  (function(d, s, id){
+    console.log('step 3')
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "https://connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+}
+
   render() {
     const childProps = {
       isAuthenticated: this.state.isAuthenticated,
@@ -61,7 +89,7 @@ class App extends Component {
               ? <NavItem onClick={this.handleLogout}>Logout</NavItem>
             : [
               <RouteNavItem key={1} href="/signup">Signup</RouteNavItem>,
-              <RouteNavItem key={2} href="/login">Loggggggin</RouteNavItem>
+              <RouteNavItem key={2} href="/login">Login</RouteNavItem>
             ]}
           </Nav>
         </Navbar.Collapse>
