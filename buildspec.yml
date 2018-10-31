@@ -5,4 +5,4 @@ phases:
       - npm build
   post_build:
     commands:
-      - aws s3 sync build/ "s3://holy-balls-a-note-app"
+      - aws s3 sync --delete . "s3://holy-balls-a-note-app"
