@@ -89,7 +89,7 @@ class App extends Component {
               ? <NavItem onClick={this.handleLogout}>Logout</NavItem>
             : [
               <RouteNavItem key={1} href="/signup">Signup</RouteNavItem>,
-              <RouteNavItem key={2} href="/login">Loggggin</RouteNavItem>
+              <RouteNavItem key={2} href="/login">Login</RouteNavItem>
             ]}
           </Nav>
         </Navbar.Collapse>
